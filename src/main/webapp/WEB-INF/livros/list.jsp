@@ -17,12 +17,23 @@
                     <th>id</th>
                     <th>titulo</th>
                     <th>genero</th>
+                    <th>autores</th>
+                    <th></th>
                 </tr>
                 <c:forEach var="l" items="${livros}">
                     <tr>
                         <td>${l.id}</td>
                         <td>${l.titulo}</td>
                         <td>${l.genero.nome}</td>
+                        <td>
+                            <c:forEach var="a" items="${l.autores}">
+                                ${a.nome}
+                            </c:forEach>
+                        </td>
+                        <td>
+                            <a href="/livros/update/${l.id}" clas="btn btn-primary">Editar</a>
+                            <a href="/livros/delete/${l.id}" clas="btn btn-danger">Excluir</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
